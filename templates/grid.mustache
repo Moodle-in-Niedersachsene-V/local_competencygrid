@@ -46,61 +46,65 @@
 </div>
 <div class="local-competencygrid-scroll">
     <div class="local-competencygrid-table" role="table" style="grid-template-columns: {{columns}};">
-        <div class="local-competencygrid-head local-competencygrid-corner" role="columnheader">{{#str}} topic, local_competencygrid {{/str}}</div>
-        {{#levels}}
-        <div class="local-competencygrid-head local-competencygrid-level-{{position}}" role="columnheader">
-            <div class="d-flex justify-content-between gap-1">
-                <strong>{{name}}</strong>
-                {{#canedit}}
-                <span class="text-nowrap">
-                    <button type="button" class="btn btn-link btn-sm p-0" data-action="edit-level" data-id="{{id}}"
-                        title="{{#str}} editlevel, local_competencygrid {{/str}}"
-                        aria-label="{{#str}} editlevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/edit, core {{/pix}}</button>
-                    <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-level" data-id="{{id}}"
-                        title="{{#str}} deletelevel, local_competencygrid {{/str}}"
-                        aria-label="{{#str}} deletelevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/delete, core {{/pix}}</button>
-                </span>
-                {{/canedit}}
+        <div class="local-competencygrid-row" role="row">
+            <div class="local-competencygrid-head local-competencygrid-corner" role="columnheader">{{#str}} topic, local_competencygrid {{/str}}</div>
+            {{#levels}}
+            <div class="local-competencygrid-head local-competencygrid-level-{{position}}" role="columnheader">
+                <div class="d-flex justify-content-between gap-1">
+                    <strong>{{name}}</strong>
+                    {{#canedit}}
+                    <span class="text-nowrap">
+                        <button type="button" class="btn btn-link btn-sm p-0" data-action="edit-level" data-id="{{id}}"
+                            title="{{#str}} editlevel, local_competencygrid {{/str}}"
+                            aria-label="{{#str}} editlevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/edit, core {{/pix}}</button>
+                        <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-level" data-id="{{id}}"
+                            title="{{#str}} deletelevel, local_competencygrid {{/str}}"
+                            aria-label="{{#str}} deletelevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/delete, core {{/pix}}</button>
+                    </span>
+                    {{/canedit}}
+                </div>
+                {{#description}}<div class="small text-muted">{{description}}</div>{{/description}}
             </div>
-            {{#description}}<div class="small text-muted">{{description}}</div>{{/description}}
+            {{/levels}}
         </div>
-        {{/levels}}
 
         {{#rows}}
-        <div class="local-competencygrid-topic" role="rowheader">
-            <div class="fw-bold font-weight-bold">{{name}}</div>
-            <div class="small text-muted">{{#str}} compcount, local_competencygrid, {{count}} {{/str}}</div>
-            {{#canedit}}
-            <div class="local-competencygrid-topicactions">
-                {{^isfirst}}
-                <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="up" data-id="{{id}}"
-                    aria-label="{{#str}} moveup {{/str}}: {{name}}" title="{{#str}} moveup {{/str}}">{{#pix}} t/up, core {{/pix}}</button>
-                {{/isfirst}}
-                {{^islast}}
-                <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="down" data-id="{{id}}"
-                    aria-label="{{#str}} movedown {{/str}}: {{name}}" title="{{#str}} movedown {{/str}}">{{#pix}} t/down, core {{/pix}}</button>
-                {{/islast}}
-                <button type="button" class="btn btn-link btn-sm p-0" data-action="rename-topic" data-id="{{id}}"
-                    aria-label="{{#str}} renametopic, local_competencygrid {{/str}}: {{name}}"
-                    title="{{#str}} renametopic, local_competencygrid {{/str}}">{{#pix}} i/edit, core {{/pix}}</button>
-                <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-topic" data-id="{{id}}"
-                    aria-label="{{#str}} deletetopic, local_competencygrid {{/str}}: {{name}}"
-                    title="{{#str}} deletetopic, local_competencygrid {{/str}}">{{#pix}} i/delete, core {{/pix}}</button>
+        <div class="local-competencygrid-row" role="row">
+            <div class="local-competencygrid-topic" role="rowheader">
+                <div class="fw-bold font-weight-bold">{{name}}</div>
+                <div class="small text-muted">{{#str}} compcount, local_competencygrid, {{count}} {{/str}}</div>
+                {{#canedit}}
+                <div class="local-competencygrid-topicactions">
+                    {{^isfirst}}
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="up" data-id="{{id}}"
+                        aria-label="{{#str}} moveup {{/str}}: {{name}}" title="{{#str}} moveup {{/str}}">{{#pix}} t/up, core {{/pix}}</button>
+                    {{/isfirst}}
+                    {{^islast}}
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="down" data-id="{{id}}"
+                        aria-label="{{#str}} movedown {{/str}}: {{name}}" title="{{#str}} movedown {{/str}}">{{#pix}} t/down, core {{/pix}}</button>
+                    {{/islast}}
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="rename-topic" data-id="{{id}}"
+                        aria-label="{{#str}} renametopic, local_competencygrid {{/str}}: {{name}}"
+                        title="{{#str}} renametopic, local_competencygrid {{/str}}">{{#pix}} i/edit, core {{/pix}}</button>
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-topic" data-id="{{id}}"
+                        aria-label="{{#str}} deletetopic, local_competencygrid {{/str}}: {{name}}"
+                        title="{{#str}} deletetopic, local_competencygrid {{/str}}">{{#pix}} i/delete, core {{/pix}}</button>
+                </div>
+                {{/canedit}}
             </div>
-            {{/canedit}}
+            {{#cells}}
+            <div class="local-competencygrid-cell local-competencygrid-level-{{position}}" role="cell">
+                {{#comps}}
+                <button type="button" class="local-competencygrid-comp {{#selected}}selected{{/selected}}" data-action="select" data-id="{{id}}"
+                    {{#selected}}aria-pressed="true"{{/selected}}>{{title}}</button>
+                {{/comps}}
+                {{#canedit}}
+                <button type="button" class="local-competencygrid-add" data-action="add-comp" data-topicid="{{topicid}}"
+                    data-levelid="{{levelid}}">+ {{#str}} competency, local_competencygrid {{/str}}</button>
+                {{/canedit}}
+            </div>
+            {{/cells}}
         </div>
-        {{#cells}}
-        <div class="local-competencygrid-cell local-competencygrid-level-{{position}}" role="cell">
-            {{#comps}}
-            <button type="button" class="local-competencygrid-comp {{#selected}}selected{{/selected}}" data-action="select" data-id="{{id}}"
-                {{#selected}}aria-pressed="true"{{/selected}}>{{title}}</button>
-            {{/comps}}
-            {{#canedit}}
-            <button type="button" class="local-competencygrid-add" data-action="add-comp" data-topicid="{{topicid}}"
-                data-levelid="{{levelid}}">+ {{#str}} competency, local_competencygrid {{/str}}</button>
-            {{/canedit}}
-        </div>
-        {{/cells}}
         {{/rows}}
     </div>
     {{^hasrows}}

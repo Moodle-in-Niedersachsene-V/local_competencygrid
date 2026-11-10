@@ -88,6 +88,10 @@
     min-width: 46rem;
 }
 
+.local-competencygrid .local-competencygrid-row {
+    display: contents;
+}
+
 .local-competencygrid .local-competencygrid-head {
     padding: 0.6rem 0.75rem;
     background-color: #f8f9fa;

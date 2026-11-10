@@ -1,0 +1,180 @@
+.local-competencygrid .local-competencygrid-chip {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    background-color: #e9ecef;
+    font-size: 0.8rem;
+}
+
+.local-competencygrid .local-competencygrid-search {
+    max-width: 28rem;
+}
+
+.local-competencygrid .local-competencygrid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+}
+
+.local-competencygrid .local-competencygrid-badge {
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.local-competencygrid .local-competencygrid-badge-own {
+    background-color: #e7f1fb;
+    color: #0b4f8c;
+}
+
+.local-competencygrid .local-competencygrid-badge-site {
+    background-color: #e3f0e8;
+    color: #1e5c36;
+}
+
+.local-competencygrid .local-competencygrid-badge-private {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+.local-competencygrid .local-competencygrid-levelbar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+}
+
+.local-competencygrid .local-competencygrid-levelbar span {
+    height: 5px;
+    border-radius: 3px;
+    background-color: #2f7fd0;
+}
+
+.local-competencygrid .local-competencygrid-levelbar span:nth-child(2) {
+    background-color: #c26a12;
+}
+
+.local-competencygrid .local-competencygrid-levelbar span:nth-child(3) {
+    background-color: #6d4bb8;
+}
+
+.local-competencygrid .local-competencygrid-editor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.local-competencygrid .local-competencygrid-main {
+    flex: 999 1 40rem;
+    min-width: 0;
+}
+
+.local-competencygrid .local-competencygrid-panel {
+    flex: 1 1 20rem;
+    max-width: 26rem;
+    min-width: 0;
+    position: sticky;
+    top: 4.5rem;
+}
+
+.local-competencygrid .local-competencygrid-scroll {
+    overflow-x: auto;
+}
+
+.local-competencygrid .local-competencygrid-table {
+    display: grid;
+    min-width: 46rem;
+}
+
+.local-competencygrid .local-competencygrid-head {
+    padding: 0.6rem 0.75rem;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+    border-top: 4px solid #2f7fd0;
+}
+
+.local-competencygrid .local-competencygrid-head.local-competencygrid-corner {
+    border-left: 0;
+    border-top-color: #f8f9fa;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #5b6670;
+}
+
+.local-competencygrid .local-competencygrid-head.local-competencygrid-level-2 {
+    border-top-color: #c26a12;
+}
+
+.local-competencygrid .local-competencygrid-head.local-competencygrid-level-3 {
+    border-top-color: #6d4bb8;
+}
+
+.local-competencygrid .local-competencygrid-topic {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.local-competencygrid .local-competencygrid-topicactions {
+    margin-top: 0.35rem;
+    display: flex;
+    gap: 0.35rem;
+}
+
+.local-competencygrid .local-competencygrid-cell {
+    padding: 0.6rem;
+    border-bottom: 1px solid #e9ecef;
+    border-left: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #f3f8fd;
+}
+
+.local-competencygrid .local-competencygrid-cell.local-competencygrid-level-2 {
+    background-color: #fdf7ef;
+}
+
+.local-competencygrid .local-competencygrid-cell.local-competencygrid-level-3 {
+    background-color: #f7f4fc;
+}
+
+.local-competencygrid .local-competencygrid-comp {
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #d5dbe1;
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: inherit;
+}
+
+.local-competencygrid .local-competencygrid-comp:hover,
+.local-competencygrid .local-competencygrid-comp:focus {
+    border-color: #0f6cbf;
+}
+
+.local-competencygrid .local-competencygrid-comp.selected {
+    border: 2px solid #0f6cbf;
+    padding: calc(0.55rem - 1px) calc(0.7rem - 1px);
+    box-shadow: 0 0 0 3px rgba(15, 108, 191, 0.18);
+}
+
+.local-competencygrid .local-competencygrid-add {
+    min-height: 2.25rem;
+    border: 1px dashed #adb5bd;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    color: #495057;
+    font-size: 0.85rem;
+}
+
+.local-competencygrid .local-competencygrid-add:hover,
+.local-competencygrid .local-competencygrid-add:focus {
+    border-color: #0f6cbf;
+    color: #0f6cbf;
+}

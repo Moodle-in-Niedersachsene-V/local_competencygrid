@@ -1,0 +1,93 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_competencygrid/library
+
+    Library of competency grids.
+
+    Example context (json):
+    {
+        "cancreate": true,
+        "createurl": "https://example.com/local/competencygrid/edit.php",
+        "importurl": "https://example.com/local/competencygrid/import.php",
+        "actionurl": "https://example.com/local/competencygrid/index.php",
+        "scope": "all",
+        "search": "",
+        "tabs": [{"label": "All", "url": "#", "active": true}],
+        "hasgrids": true,
+        "grids": [{"name": "BWL", "url": "#", "subtitle": "Sek II", "topiccount": 7, "compcount": 28,
+            "license": "CC BY-SA 4.0", "badge": "Owner", "badgeclass": "own", "timemodified": "10 Nov 2026"}]
+    }
+}}
+<div class="local-competencygrid local-competencygrid-library">
+    <div class="d-flex flex-wrap align-items-end gap-3 mb-3">
+        <p class="text-muted mb-0 flex-grow-1">{{#str}} libraryintro, local_competencygrid {{/str}}</p>
+        {{#cancreate}}
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-secondary" href="{{importurl}}">{{#str}} importexacomp, local_competencygrid {{/str}}</a>
+            <a class="btn btn-primary" href="{{createurl}}">{{#str}} creategrid, local_competencygrid {{/str}}</a>
+        </div>
+        {{/cancreate}}
+    </div>
+
+    <ul class="nav nav-tabs mb-3">
+        {{#tabs}}
+        <li class="nav-item">
+            <a class="nav-link {{#active}}active{{/active}}" href="{{url}}" {{#active}}aria-current="page"{{/active}}>{{label}}</a>
+        </li>
+        {{/tabs}}
+    </ul>
+
+    <form class="d-flex flex-wrap gap-2 mb-4" method="get" action="{{actionurl}}" role="search">
+        <input type="hidden" name="scope" value="{{scope}}">
+        <label class="visually-hidden sr-only" for="local-competencygrid-search">{{#str}} search {{/str}}</label>
+        <input type="search" class="form-control local-competencygrid-search" id="local-competencygrid-search" name="search"
+            value="{{search}}" placeholder="{{#str}} searchplaceholder, local_competencygrid {{/str}}">
+        <button type="submit" class="btn btn-outline-primary">{{#str}} search {{/str}}</button>
+    </form>
+
+    {{#hasgrids}}
+    <div class="local-competencygrid-cards">
+        {{#grids}}
+        <article class="card local-competencygrid-card">
+            <div class="card-body d-flex flex-column gap-2">
+                <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                        {{#subtitle}}<div class="small text-muted">{{subtitle}}</div>{{/subtitle}}
+                        <h3 class="h5 mb-0"><a href="{{url}}">{{name}}</a></h3>
+                    </div>
+                    <span class="local-competencygrid-badge local-competencygrid-badge-{{badgeclass}}">{{badge}}</span>
+                </div>
+                <div class="local-competencygrid-levelbar" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="small d-flex flex-wrap gap-3">
+                    <span>{{#str}} topiccount, local_competencygrid, {{topiccount}} {{/str}}</span>
+                    <span>{{#str}} compcount, local_competencygrid, {{compcount}} {{/str}}</span>
+                    {{#license}}<span>{{license}}</span>{{/license}}
+                </div>
+                <div class="small text-muted">{{#str}} lastmodified, local_competencygrid, {{timemodified}} {{/str}}</div>
+                <div class="mt-auto pt-1">
+                    <a class="btn btn-outline-primary btn-sm" href="{{url}}">{{#str}} open, local_competencygrid {{/str}}</a>
+                </div>
+            </div>
+        </article>
+        {{/grids}}
+    </div>
+    {{/hasgrids}}
+    {{^hasgrids}}
+    <div class="alert alert-info">{{#str}} nogrids, local_competencygrid {{/str}}</div>
+    {{/hasgrids}}
+</div>

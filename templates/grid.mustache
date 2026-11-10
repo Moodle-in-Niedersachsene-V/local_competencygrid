@@ -1,0 +1,109 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_competencygrid/grid
+
+    The grid itself, rendered by the editor JavaScript.
+
+    Example context (json):
+    {
+        "canedit": true,
+        "sentencestart": "Die Schüler können …",
+        "levelcount": 3,
+        "columns": "220px repeat(3, minmax(190px, 1fr))",
+        "levels": [{"id": 1, "name": "AFB I", "description": "nennen", "position": 1}],
+        "hasrows": true,
+        "rows": [{"id": 1, "name": "Grundlagen", "count": 1, "isfirst": true, "islast": true,
+            "cells": [{"topicid": 1, "levelid": 1, "position": 1,
+                "comps": [{"id": 5, "title": "...", "selected": true}]}]}]
+    }
+}}
+<div class="local-competencygrid-toolbar d-flex flex-wrap align-items-center gap-2 p-2 border-bottom">
+    {{#sentencestart}}
+    <span class="small text-muted">{{#str}} sentencestart, local_competencygrid {{/str}}: <strong>{{sentencestart}}</strong></span>
+    {{/sentencestart}}
+    <div class="ms-auto ml-auto d-flex flex-wrap gap-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-action="refresh">{{#str}} refresh {{/str}}</button>
+        {{#canedit}}
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-action="add-level">{{#str}} addlevel, local_competencygrid {{/str}}</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-action="add-topic">{{#str}} addtopic, local_competencygrid {{/str}}</button>
+        {{/canedit}}
+    </div>
+</div>
+<div class="local-competencygrid-scroll">
+    <div class="local-competencygrid-table" role="table" style="grid-template-columns: {{columns}};">
+        <div class="local-competencygrid-head local-competencygrid-corner" role="columnheader">{{#str}} topic, local_competencygrid {{/str}}</div>
+        {{#levels}}
+        <div class="local-competencygrid-head local-competencygrid-level-{{position}}" role="columnheader">
+            <div class="d-flex justify-content-between gap-1">
+                <strong>{{name}}</strong>
+                {{#canedit}}
+                <span class="text-nowrap">
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="edit-level" data-id="{{id}}"
+                        title="{{#str}} editlevel, local_competencygrid {{/str}}"
+                        aria-label="{{#str}} editlevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/edit, core {{/pix}}</button>
+                    <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-level" data-id="{{id}}"
+                        title="{{#str}} deletelevel, local_competencygrid {{/str}}"
+                        aria-label="{{#str}} deletelevel, local_competencygrid {{/str}}: {{name}}">{{#pix}} i/delete, core {{/pix}}</button>
+                </span>
+                {{/canedit}}
+            </div>
+            {{#description}}<div class="small text-muted">{{description}}</div>{{/description}}
+        </div>
+        {{/levels}}
+
+        {{#rows}}
+        <div class="local-competencygrid-topic" role="rowheader">
+            <div class="fw-bold font-weight-bold">{{name}}</div>
+            <div class="small text-muted">{{#str}} compcount, local_competencygrid, {{count}} {{/str}}</div>
+            {{#canedit}}
+            <div class="local-competencygrid-topicactions">
+                {{^isfirst}}
+                <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="up" data-id="{{id}}"
+                    aria-label="{{#str}} moveup {{/str}}: {{name}}" title="{{#str}} moveup {{/str}}">{{#pix}} t/up, core {{/pix}}</button>
+                {{/isfirst}}
+                {{^islast}}
+                <button type="button" class="btn btn-link btn-sm p-0" data-action="move-topic" data-direction="down" data-id="{{id}}"
+                    aria-label="{{#str}} movedown {{/str}}: {{name}}" title="{{#str}} movedown {{/str}}">{{#pix}} t/down, core {{/pix}}</button>
+                {{/islast}}
+                <button type="button" class="btn btn-link btn-sm p-0" data-action="rename-topic" data-id="{{id}}"
+                    aria-label="{{#str}} renametopic, local_competencygrid {{/str}}: {{name}}"
+                    title="{{#str}} renametopic, local_competencygrid {{/str}}">{{#pix}} i/edit, core {{/pix}}</button>
+                <button type="button" class="btn btn-link btn-sm p-0" data-action="delete-topic" data-id="{{id}}"
+                    aria-label="{{#str}} deletetopic, local_competencygrid {{/str}}: {{name}}"
+                    title="{{#str}} deletetopic, local_competencygrid {{/str}}">{{#pix}} i/delete, core {{/pix}}</button>
+            </div>
+            {{/canedit}}
+        </div>
+        {{#cells}}
+        <div class="local-competencygrid-cell local-competencygrid-level-{{position}}" role="cell">
+            {{#comps}}
+            <button type="button" class="local-competencygrid-comp {{#selected}}selected{{/selected}}" data-action="select" data-id="{{id}}"
+                {{#selected}}aria-pressed="true"{{/selected}}>{{title}}</button>
+            {{/comps}}
+            {{#canedit}}
+            <button type="button" class="local-competencygrid-add" data-action="add-comp" data-topicid="{{topicid}}"
+                data-levelid="{{levelid}}">+ {{#str}} competency, local_competencygrid {{/str}}</button>
+            {{/canedit}}
+        </div>
+        {{/cells}}
+        {{/rows}}
+    </div>
+    {{^hasrows}}
+    <div class="p-4 text-muted">{{#str}} norows, local_competencygrid {{/str}}</div>
+    {{/hasrows}}
+</div>

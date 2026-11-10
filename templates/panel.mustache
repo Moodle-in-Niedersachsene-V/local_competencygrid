@@ -1,0 +1,84 @@
+{{!
+    This file is part of Moodle - https://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_competencygrid/panel
+
+    Side panel for viewing or editing one competency.
+
+    Example context (json):
+    {
+        "empty": false,
+        "canedit": true,
+        "isnew": false,
+        "id": 5,
+        "title": "Preisstrategien anwenden",
+        "timemodified": 1762761600,
+        "sentencestart": "Die Schüler können …",
+        "modifiedby": "F. Küppers",
+        "topics": [{"id": 1, "name": "Marketing", "selected": true}],
+        "levels": [{"id": 2, "name": "AFB II", "selected": true}],
+        "topicname": "Marketing",
+        "levelname": "AFB II"
+    }
+}}
+{{#empty}}
+<div class="p-4 text-muted">{{#str}} panelempty, local_competencygrid {{/str}}</div>
+{{/empty}}
+{{^empty}}
+<div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+    <h2 class="h5 mb-0">
+        {{#isnew}}{{#str}} newcompetency, local_competencygrid {{/str}}{{/isnew}}
+        {{^isnew}}{{#canedit}}{{#str}} editcompetency, local_competencygrid {{/str}}{{/canedit}}{{^canedit}}{{#str}} competency, local_competencygrid {{/str}}{{/canedit}}{{/isnew}}
+    </h2>
+    <button type="button" class="btn-close" data-action="close-panel" aria-label="{{#str}} closebuttontitle {{/str}}"></button>
+</div>
+{{#canedit}}
+<form class="p-3 d-flex flex-column gap-3" data-region="comp-form" novalidate>
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="hidden" name="timemodified" value="{{timemodified}}">
+    <div>
+        <label class="form-label fw-bold font-weight-bold" for="local-competencygrid-title">{{#str}} formulation, local_competencygrid {{/str}}</label>
+        {{#sentencestart}}<div class="small text-muted mb-1">{{sentencestart}}</div>{{/sentencestart}}
+        <textarea class="form-control" id="local-competencygrid-title" name="title" rows="4" required>{{title}}</textarea>
+    </div>
+    <div>
+        <label class="form-label fw-bold font-weight-bold" for="local-competencygrid-level">{{#str}} level, local_competencygrid {{/str}}</label>
+        <select class="form-select custom-select" id="local-competencygrid-level" name="levelid">
+            {{#levels}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>{{/levels}}
+        </select>
+    </div>
+    <div>
+        <label class="form-label fw-bold font-weight-bold" for="local-competencygrid-topic">{{#str}} topic, local_competencygrid {{/str}}</label>
+        <select class="form-select custom-select" id="local-competencygrid-topic" name="topicid">
+            {{#topics}}<option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>{{/topics}}
+        </select>
+    </div>
+    <div class="d-flex flex-wrap gap-2">
+        <button type="submit" class="btn btn-primary">{{#str}} savechanges {{/str}}</button>
+        {{^isnew}}<button type="button" class="btn btn-outline-danger" data-action="delete-comp" data-id="{{id}}">{{#str}} delete {{/str}}</button>{{/isnew}}
+    </div>
+    {{#modifiedby}}<div class="small text-muted">{{#str}} lastchangedby, local_competencygrid, {{modifiedby}} {{/str}}</div>{{/modifiedby}}
+</form>
+{{/canedit}}
+{{^canedit}}
+<div class="p-3 d-flex flex-column gap-2">
+    {{#sentencestart}}<div class="small text-muted">{{sentencestart}}</div>{{/sentencestart}}
+    <p class="mb-0">{{title}}</p>
+    <div class="small text-muted">{{topicname}} · {{levelname}}</div>
+</div>
+{{/canedit}}
+{{/empty}}

@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<exacomp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://github.com/gtn/edustandards/blob/master/new%20schema/exacomp.xsd" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" sourcename="KOMET - readytouse">
+		<skills />
+				<niveaus>
+		<niveau source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="12033" >
+		<title><![CDATA[AFB I – Wiedergeben]]></title>
+		<sorting>26925</sorting>
+				<span>0</span>
+				<numb>1</numb>
+	</niveau>
+		<niveau source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="12034" >
+		<title><![CDATA[AFB II – Anwenden]]></title>
+		<sorting>26935</sorting>
+				<span>0</span>
+				<numb>2</numb>
+	</niveau>
+		<niveau source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="12039" >
+		<title><![CDATA[AFB III – Beurteilen]]></title>
+		<sorting>26985</sorting>
+				<span>0</span>
+				<numb>3</numb>
+	</niveau>
+				</niveaus>
+				<taxonomies>
+		<taxonomy source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="102" >
+		<title><![CDATA[2]]></title>
+		<sorting>5</sorting>
+	</taxonomy>
+				</taxonomies>
+		<categories />
+		<categoriesn />
+				<examples>
+						<example source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="41297" >
+						<title><![CDATA[Abschnitt Preisbildung im Oligopol]]></title>
+						<titleshort />
+						<description />
+						<timeframe />
+				<externaltask><![CDATA[https://vsn.moodle-nds.de/mod/page/view.php?id=9184]]></externaltask>
+				<externalsolution />
+				<completefile />
+						<sorting>120284</sorting>
+						<lang>0</lang>
+						<iseditable>0</iseditable>
+						<tips />
+						<externalurl />
+						<metalink />
+						<packagelink />
+						<restorelink />
+						<parentid>0</parentid>
+						<epop>0</epop>
+						<lti_link />
+						<lti_secret />
+						<ethema_ismain>0</ethema_ismain>
+						<ethema_issubcategory>0</ethema_issubcategory>
+						<ethema_important>0</ethema_important>
+						<is_moodle_activity>0</is_moodle_activity>
+						<activitytitle />
+						<activitytype />
+						<activityid />
+						<courseid />
+						<activitylink />
+						<is_teacherexample>0</is_teacherexample>
+						<author_origin />
+				<taxonomies>
+						<taxonomyid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="102" sorting="0"/>
+				</taxonomies>
+				<descriptors>
+						<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256360" sorting="1"/>
+				</descriptors>
+		<author><![CDATA[Redakteur, redaktion@example.com]]></author>
+		<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+		</example>
+		</examples>
+				<descriptors>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256356" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Unternehmensziele (ökonomische, ökologische, soziale) nennen und beschreiben]]></title>
+			<sorting>615386</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256357" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können das ökonomische Prinzip (Maximal- und Minimalprinzip) auf betriebliche Entscheidungssituationen anwenden]]></title>
+			<sorting>615396</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256360" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Grundlagen der BWL wiedergeben]]></title>
+			<sorting>615426</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256363" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können betriebliche Prozesse darstellen]]></title>
+			<sorting>615456</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor><![CDATA[Redakteur, redaktion@example.com]]></editor>
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256364" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Produktivität, Wirtschaftlichkeit und Rentabilität berechnen und interpretieren]]></title>
+			<sorting>615466</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor><![CDATA[Redakteur, redaktion@example.com]]></editor>
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256365" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Zielkonflikte zwischen ökonomischen, ökologischen und sozialen Unternehmenszielen beurteilen]]></title>
+			<sorting>615476</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256401" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Rechtsformen von Unternehmen (Einzelunternehmen, Personen- und Kapitalgesellschaften) beschreiben]]></title>
+			<sorting>615510</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256402" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Wahl einer Rechtsform für ein Unternehmen begründet beurteilen]]></title>
+			<sorting>615520</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256403" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Marktformen und Methoden der Marktforschung beschreiben]]></title>
+			<sorting>615530</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256404" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Instrumente des Marketing-Mix (Produkt-, Preis-, Kommunikations- und Distributionspolitik) nennen und beschreiben]]></title>
+			<sorting>615540</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256405" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Produktlebenszyklus und Portfolio-Analyse auf ein Produktprogramm anwenden]]></title>
+			<sorting>615550</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256406" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Preisstrategien und die Preisbildung im Oligopol auf Marktsituationen anwenden]]></title>
+			<sorting>615560</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256407" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können einen Marketing-Mix hinsichtlich seiner Wirksamkeit beurteilen]]></title>
+			<sorting>615570</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256408" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Werbemaßnahmen unter ethischen und ökologischen Gesichtspunkten beurteilen]]></title>
+			<sorting>615580</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256409" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Aufgaben und Ziele der Beschaffung beschreiben]]></title>
+			<sorting>615590</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256410" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Bezugsquellen und Bestellverfahren (Bestellpunkt- und Bestellrhythmusverfahren) nennen und beschreiben]]></title>
+			<sorting>615600</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256411" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können einen quantitativen und qualitativen Angebotsvergleich durchführen]]></title>
+			<sorting>615610</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256412" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die optimale Bestellmenge berechnen]]></title>
+			<sorting>615620</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256413" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Make-or-buy-Entscheidungen beurteilen]]></title>
+			<sorting>615630</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256414" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Just-in-time-Beschaffung und Vorratshaltung vergleichend beurteilen]]></title>
+			<sorting>615640</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256415" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die betrieblichen Produktionsfaktoren nennen und beschreiben]]></title>
+			<sorting>615650</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256416" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Fertigungstypen und Fertigungsverfahren beschreiben]]></title>
+			<sorting>615660</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256417" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können fixe und variable Kosten unterscheiden und Kostenverläufe darstellen]]></title>
+			<sorting>615670</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256418" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Gewinnschwelle (Break-even-Point) ermitteln]]></title>
+			<sorting>615680</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256419" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Rationalisierungs- und Automatisierungsmaßnahmen beurteilen]]></title>
+			<sorting>615690</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256420" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Produktionsentscheidungen unter dem Aspekt der Nachhaltigkeit beurteilen]]></title>
+			<sorting>615700</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256421" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können die Aufgaben der Personalwirtschaft beschreiben]]></title>
+			<sorting>615710</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256422" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Inhalte eines Arbeitsvertrags sowie Rechte und Pflichten aus dem Arbeitsverhältnis nennen]]></title>
+			<sorting>615720</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256423" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können den Personalbedarf ermitteln]]></title>
+			<sorting>615730</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256424" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können eine Entgeltabrechnung (brutto/netto) erstellen]]></title>
+			<sorting>615740</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256425" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Entgeltformen (Zeit-, Akkord-, Prämienlohn) beurteilen]]></title>
+			<sorting>615750</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256426" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Verfahren der Personalauswahl beurteilen]]></title>
+			<sorting>615760</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256427" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Finanzierungsarten (Innen-/Außen-, Eigen-/Fremdfinanzierung) systematisieren]]></title>
+			<sorting>615770</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256428" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Investitionsarten beschreiben]]></title>
+			<sorting>615780</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256429" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können statische Investitionsrechenverfahren (Kosten-, Gewinn-, Rentabilitätsvergleich, Amortisationsrechnung) anwenden]]></title>
+			<sorting>615790</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256430" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Kreditkauf und Leasing rechnerisch vergleichen]]></title>
+			<sorting>615800</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256431" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Finanzierungsalternativen beurteilen]]></title>
+			<sorting>615810</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256432" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Investitionsentscheidungen unter Einbezug qualitativer Faktoren beurteilen]]></title>
+			<sorting>615820</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256433" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Aufgaben und Teilbereiche des Rechnungswesens beschreiben]]></title>
+			<sorting>615830</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256434" >
+			<niveauid id="12033" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können den Aufbau von Bilanz sowie Gewinn- und Verlustrechnung beschreiben]]></title>
+			<sorting>615840</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256435" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Geschäftsfälle buchen]]></title>
+			<sorting>615850</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256436" >
+			<niveauid id="12034" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können eine Zuschlagskalkulation mithilfe des Betriebsabrechnungsbogens durchführen]]></title>
+			<sorting>615860</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256437" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können einen Jahresabschluss anhand von Kennzahlen analysieren und beurteilen]]></title>
+			<sorting>615870</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+		<descriptor source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256438" >
+			<niveauid id="12039" source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" />
+			<title><![CDATA[Die Schüler können Sortimentsentscheidungen mithilfe der Deckungsbeitragsrechnung beurteilen]]></title>
+			<sorting>615880</sorting>
+				<profoundness>0</profoundness>
+				<epop>0</epop>
+			<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+			<editor />
+		</descriptor>
+				</descriptors>
+				<crosssubjects />
+		<edulevels>
+				<edulevel source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="14" >
+				<title><![CDATA[Sekundarstufe II]]></title>
+				<sorting>403</sorting>
+				<schooltypes>
+						<schooltype source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="1434" >
+						<title><![CDATA[Höherer Schulabschluss Abitur]]></title>
+						<sorting>1968</sorting>
+								<isoez>0</isoez>
+								<epop>0</epop>
+						<subjects>
+								<subject source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="6214" >
+									<title><![CDATA[Betriebswirtschaftslehre]]></title>
+									<titleshort />
+									<sorting>16003</sorting>
+									<numb>0</numb>
+									<class><![CDATA[Jahrgang 11]]></class>
+											<author><![CDATA[Redakteur, redaktion@example.com]]></author>
+											<editor><![CDATA[Redakteur, redaktion@example.com]]></editor>
+				<infolink />
+											<epop>0</epop>
+											<isglobal>0</isglobal>
+											<version />
+											<is_editable>0</is_editable>
+									<topics>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="47332"  >
+											<title><![CDATA[Grundlagen BWL]]></title>
+											<titleshort />
+											<sorting>10</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor><![CDATA[Redakteur, redaktion@example.com]]></editor>
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256360" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256356" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256401" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256363" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256357" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256364" sorting="6"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="256365" sorting="7"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256402" sorting="8"/>
+													</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="47334"  >
+											<title><![CDATA[Marketing]]></title>
+											<titleshort />
+											<sorting>20</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor><![CDATA[Redakteur, redaktion@example.com]]></editor>
+											<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256403" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256404" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256405" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256406" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256407" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256408" sorting="6"/>
+												</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9047401"  >
+											<title><![CDATA[Beschaffung und Logistik]]></title>
+											<titleshort />
+											<sorting>30</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor />
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256409" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256410" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256411" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256412" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256413" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256414" sorting="6"/>
+													</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9047402"  >
+											<title><![CDATA[Produktion]]></title>
+											<titleshort />
+											<sorting>40</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor />
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256415" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256416" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256417" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256418" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256419" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256420" sorting="6"/>
+													</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9047403"  >
+											<title><![CDATA[Personalwirtschaft]]></title>
+											<titleshort />
+											<sorting>50</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor />
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256421" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256422" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256423" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256424" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256425" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256426" sorting="6"/>
+													</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9047404"  >
+											<title><![CDATA[Finanzierung und Investition]]></title>
+											<titleshort />
+											<sorting>60</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor />
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256427" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256428" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256429" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256430" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256431" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256432" sorting="6"/>
+													</descriptors>
+											</topic>
+											<topic source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9047405"  >
+											<title><![CDATA[Rechnungswesen]]></title>
+											<titleshort />
+											<sorting>70</sorting>
+											<description />
+											<numb />
+													<epop>0</epop>
+													<span>0</span>
+													<creator><![CDATA[Redakteur, redaktion@example.com]]></creator>
+													<editor />
+													<descriptors>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256433" sorting="1"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256434" sorting="2"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256435" sorting="3"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256436" sorting="4"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256437" sorting="5"/>
+															<descriptorid source="KOMET-IDQQDAAcEDwIHBwsNDQ8CgIA1" id="9256438" sorting="6"/>
+													</descriptors>
+											</topic>
+									</topics>
+								</subject>
+						</subjects>
+						</schooltype>
+				</schooltypes>
+				</edulevel>
+		</edulevels>
+	</exacomp>
+

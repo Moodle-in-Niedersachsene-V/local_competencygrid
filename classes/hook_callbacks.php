@@ -36,10 +36,7 @@ class hook_callbacks {
         if (during_initial_install() || !get_config('local_competencygrid', 'showinprimarynav')) {
             return;
         }
-        if (!isloggedin() || isguestuser()) {
-            return;
-        }
-        if (!has_capability('local/competencygrid:view', \context_system::instance())) {
+        if (!isloggedin()) {
             return;
         }
         $hook->get_primaryview()->add(

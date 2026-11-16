@@ -27,12 +27,11 @@ require_once($CFG->libdir . '/licenselib.php');
 
 use local_competencygrid\grid;
 
-require_login();
+require_login(null, true);
 $context = context_system::instance();
-require_capability('local/competencygrid:view', $context);
 
 $scope = optional_param('scope', 'all', PARAM_ALPHA);
-$scope = $scope === 'mine' ? 'mine' : 'all';
+$scope = $scope === 'mine' && !isguestuser() ? 'mine' : 'all';
 $search = trim(optional_param('search', '', PARAM_TEXT));
 
 $url = new moodle_url('/local/competencygrid/index.php', ['scope' => $scope]);
@@ -81,7 +80,8 @@ foreach (grid::list_grids($scope, $search) as $record) {
 }
 
 $tabs = [];
-foreach (['all' => 'tabvisible', 'mine' => 'tabmine'] as $tabscope => $label) {
+$tabdefs = isguestuser() ? ['all' => 'tabvisible'] : ['all' => 'tabvisible', 'mine' => 'tabmine'];
+foreach ($tabdefs as $tabscope => $label) {
     $tabs[] = [
         'label' => get_string($label, 'local_competencygrid'),
         'url' => (new moodle_url('/local/competencygrid/index.php', ['scope' => $tabscope]))->out(false),
@@ -90,7 +90,7 @@ foreach (['all' => 'tabvisible', 'mine' => 'tabmine'] as $tabscope => $label) {
 }
 
 $data = [
-    'cancreate' => has_capability('local/competencygrid:create', $context),
+    'cancreate' => grid::can_create(),
     'createurl' => (new moodle_url('/local/competencygrid/edit.php'))->out(false),
     'importurl' => (new moodle_url('/local/competencygrid/import.php'))->out(false),
     'actionurl' => (new moodle_url('/local/competencygrid/index.php'))->out(false),

@@ -1,5 +1,12 @@
 # Kompetenzraster – Kurzanleitung
 
+## Wer darf was?
+- **Öffentliche Raster** sehen und exportieren alle, auch Gäste. **Private Raster** sehen nur Besitzer und Mitwirkende.
+- **Anlegen und bearbeiten** dürfen nur Mitglieder der globalen Gruppe, die in der Website-Administration
+  (Plugins → Lokale Plugins → Kompetenzraster → „Globale Gruppe für die Bearbeitung“) gewählt ist.
+  Bearbeitet werden nur eigene Raster und Raster, bei denen man mit „Kann bearbeiten“ eingetragen ist.
+- Ohne gewählte Gruppe entscheidet die Berechtigung `local/competencygrid:create`.
+
 ## Raster anlegen
 Kompetenzraster → **Raster anlegen**. Name, Fach, Jahrgang, Bildungsstufe und Schulform eintragen.
 Fach, Jahrgang, Bildungsstufe und Schulform wählen Sie aus Listen, die in der

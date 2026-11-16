@@ -32,7 +32,7 @@ use local_competencygrid\local\moodlecsv_exporter;
 $id = required_param('id', PARAM_INT);
 $format = required_param('format', PARAM_ALPHA);
 
-require_login();
+require_login(null, true);
 $record = grid::get($id);
 grid::require_view($record);
 

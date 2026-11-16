@@ -30,7 +30,7 @@ use local_competencygrid\local\exacomp_importer;
 
 require_login();
 $context = context_system::instance();
-require_capability('local/competencygrid:create', $context);
+grid::require_create();
 
 $indexurl = new moodle_url('/local/competencygrid/index.php');
 $title = get_string('importexacomp', 'local_competencygrid');

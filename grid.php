@@ -29,7 +29,7 @@ use local_competencygrid\grid;
 
 $id = required_param('id', PARAM_INT);
 
-require_login();
+require_login(null, true);
 $context = context_system::instance();
 $record = grid::get($id);
 grid::require_view($record);

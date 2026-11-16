@@ -34,6 +34,15 @@ use local_competencygrid\local\level_schemes;
 #[\PHPUnit\Framework\Attributes\CoversClass(event\member_added::class)]
 final class grid_test extends \advanced_testcase {
     /**
+     * Loads the cohort library.
+     */
+    public static function setUpBeforeClass(): void {
+        global $CFG;
+        parent::setUpBeforeClass();
+        require_once($CFG->dirroot . '/cohort/lib.php');
+    }
+
+    /**
      * Owner, members and other users get the expected permissions.
      */
     public function test_permissions(): void {
@@ -61,6 +70,42 @@ final class grid_test extends \advanced_testcase {
         $this->assertTrue(grid::can_view($record, (int) $other->id));
         $this->assertFalse(grid::can_edit($record, (int) $other->id));
         $this->assertSame(3, $DB->count_records(grid::TABLE_LEVEL, ['gridid' => $gridid]));
+    }
+
+    /**
+     * With an editing group, only its members may create and edit; public grids are visible to guests.
+     */
+    public function test_editor_cohort(): void {
+        $this->resetAfterTest();
+        $generator = $this->getDataGenerator();
+        $inside = $generator->create_user();
+        $outside = $generator->create_user();
+        $cohort = $generator->create_cohort();
+        cohort_add_member($cohort->id, $inside->id);
+
+        $this->setUser($outside);
+        $outsidegrid = grid::get(grid::create((object) ['name' => 'Alt']));
+        $this->setUser($inside);
+        $gridid = grid::create((object) ['name' => 'Raster']);
+        grid::add_member($gridid, (int) $outside->id, grid::ROLE_EDITOR);
+        $record = grid::get($gridid);
+
+        set_config('editorcohort', $cohort->id, 'local_competencygrid');
+        $this->assertTrue(grid::can_create((int) $inside->id));
+        $this->assertFalse(grid::can_create((int) $outside->id));
+        $this->assertTrue(grid::can_edit($record, (int) $inside->id));
+        $this->assertFalse(grid::can_edit($record, (int) $outside->id));
+        $this->assertFalse(grid::can_manage($outsidegrid, (int) $outside->id));
+        $this->assertTrue(grid::can_view($record, (int) $outside->id));
+
+        $guestid = (int) guest_user()->id;
+        $this->assertFalse(grid::can_view($record, $guestid));
+        $record->visibility = grid::VISIBILITY_SITE;
+        $this->assertTrue(grid::can_view($record, $guestid));
+        $this->assertFalse(grid::can_edit($record, $guestid));
+
+        set_config('editorcohort', 0, 'local_competencygrid');
+        $this->assertTrue(grid::can_edit($record, (int) $outside->id));
     }
 
     /**

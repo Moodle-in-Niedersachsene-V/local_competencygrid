@@ -40,7 +40,7 @@ if ($id) {
     $returnurl = new moodle_url('/local/competencygrid/grid.php', ['id' => $id]);
     $title = get_string('gridsettings', 'local_competencygrid');
 } else {
-    require_capability('local/competencygrid:create', $context);
+    grid::require_create();
     $record = null;
     $returnurl = $indexurl;
     $title = get_string('creategrid', 'local_competencygrid');

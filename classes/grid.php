@@ -101,28 +101,82 @@ class grid {
     }
 
     /**
-     * Whether the user may view the grid.
+     * Returns the id of the global group (cohort) whose members may create and edit grids.
+     *
+     * @return int Cohort id, 0 if no group is configured.
+     */
+    public static function editor_cohort(): int {
+        return (int) get_config('local_competencygrid', 'editorcohort');
+    }
+
+    /**
+     * Whether the user belongs to the editing group, or no group is configured.
+     *
+     * @param int $userid User id.
+     * @return bool
+     */
+    public static function is_in_editor_cohort(int $userid): bool {
+        global $CFG;
+        $cohortid = self::editor_cohort();
+        if ($cohortid === 0) {
+            return true;
+        }
+        require_once($CFG->dirroot . '/cohort/lib.php');
+        return cohort_is_member($cohortid, $userid);
+    }
+
+    /**
+     * Whether the user may view the grid. Public grids are visible to everybody, guests included.
      *
      * @param stdClass $grid Grid record.
      * @param int|null $userid User id or null for the current user.
      * @return bool
      */
     public static function can_view(stdClass $grid, ?int $userid = null): bool {
+        if ((int) $grid->visibility === self::VISIBILITY_SITE) {
+            return true;
+        }
         $userid = self::resolve_user($userid);
+        if ($userid === 0 || isguestuser($userid)) {
+            return false;
+        }
+        if (self::can_manage_all($userid)) {
+            return true;
+        }
         if (!has_capability('local/competencygrid:view', context_system::instance(), $userid)) {
             return false;
         }
-        if ((int) $grid->visibility === self::VISIBILITY_SITE || (int) $grid->ownerid === $userid) {
+        return (int) $grid->ownerid === $userid || self::get_member_role((int) $grid->id, $userid) !== null;
+    }
+
+    /**
+     * Whether the user may create and import grids.
+     *
+     * With an editing group configured, membership in the group is required and sufficient.
+     * Without one, the capability local/competencygrid:create decides.
+     *
+     * @param int|null $userid User id or null for the current user.
+     * @return bool
+     */
+    public static function can_create(?int $userid = null): bool {
+        $userid = self::resolve_user($userid);
+        if ($userid === 0 || isguestuser($userid)) {
+            return false;
+        }
+        if (self::can_manage_all($userid)) {
             return true;
         }
-        if (self::get_member_role((int) $grid->id, $userid) !== null) {
-            return true;
+        if (self::editor_cohort() !== 0) {
+            return self::is_in_editor_cohort($userid);
         }
-        return self::can_manage_all($userid);
+        return has_capability('local/competencygrid:create', context_system::instance(), $userid);
     }
 
     /**
      * Whether the user may edit the content of the grid.
+     *
+     * Owners and collaborators with the editor role may edit, provided they belong to the
+     * editing group (if one is configured).
      *
      * @param stdClass $grid Grid record.
      * @param int|null $userid User id or null for the current user.
@@ -130,16 +184,14 @@ class grid {
      */
     public static function can_edit(stdClass $grid, ?int $userid = null): bool {
         $userid = self::resolve_user($userid);
-        if (isguestuser($userid) || !has_capability('local/competencygrid:view', context_system::instance(), $userid)) {
+        if ($userid === 0 || isguestuser($userid)) {
             return false;
         }
-        if ((int) $grid->ownerid === $userid) {
+        if (self::can_manage_all($userid)) {
             return true;
         }
-        if (self::get_member_role((int) $grid->id, $userid) === self::ROLE_EDITOR) {
-            return true;
-        }
-        return self::can_manage_all($userid);
+        $iseditor = (int) $grid->ownerid === $userid || self::get_member_role((int) $grid->id, $userid) === self::ROLE_EDITOR;
+        return $iseditor && self::is_in_editor_cohort($userid);
     }
 
     /**
@@ -151,13 +203,24 @@ class grid {
      */
     public static function can_manage(stdClass $grid, ?int $userid = null): bool {
         $userid = self::resolve_user($userid);
-        if (isguestuser($userid)) {
+        if ($userid === 0 || isguestuser($userid)) {
             return false;
         }
-        if ((int) $grid->ownerid === $userid && has_capability('local/competencygrid:view', context_system::instance(), $userid)) {
+        if (self::can_manage_all($userid)) {
             return true;
         }
-        return self::can_manage_all($userid);
+        return (int) $grid->ownerid === $userid && self::is_in_editor_cohort($userid);
+    }
+
+    /**
+     * Throws an exception if the current user may not create grids.
+     *
+     * @return void
+     */
+    public static function require_create(): void {
+        if (!self::can_create()) {
+            throw new moodle_exception('nopermissioncreate', 'local_competencygrid');
+        }
     }
 
     /**
@@ -511,7 +574,7 @@ class grid {
             'u2' => (int) $USER->id,
             'all' => $scope === 'mine' ? 0 : 1,
             'site' => self::VISIBILITY_SITE,
-            'manageall' => self::can_manage_all() ? 1 : 0,
+            'manageall' => !isguestuser() && self::can_manage_all() ? 1 : 0,
         ];
         $sql = "SELECT g.id, g.name, g.subject, g.classlevel, g.edulevel, g.schooltype, g.license, g.visibility,
                        g.ownerid, g.timemodified, m.role AS memberrole,

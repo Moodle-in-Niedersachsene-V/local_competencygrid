@@ -13,7 +13,9 @@ The plugin replaces external editors such as Komet for creating grids.
   maintained by the administrator; chosen when a grid is created and addable to existing grids.
 - Collaborators with the roles "Can edit" and "Can view". Owner and site
   managers change settings, collaborators and may delete the grid.
-- Visibility: private or visible on this site.
+- Visibility: private or public. Public grids can be seen and exported by everybody, guests included.
+- Optional editing group: if a global group (cohort) is configured, only its members may create,
+  import and edit grids.
 - Import of exacomp XML files (for example Komet exports). Each subject becomes a grid.
 - Export as exacomp XML with stable ids: imported ids are kept, new items get
   ids starting at 900000000, so a new import into block_exacomp updates instead of duplicating.
@@ -45,13 +47,18 @@ adding or removing collaborators are logged as events (`\local_competencygrid\ev
 | local/competencygrid:create | Course creator, manager | Create and import grids |
 | local/competencygrid:manageall | Manager | Edit and manage all grids |
 
-Teachers usually hold their roles in course context only. To let all teachers create
-grids, allow `local/competencygrid:create` for the authenticated user role or a
-system role assigned to teachers.
+Teachers usually hold their roles in course context only. The simplest way to let a defined
+set of people create and edit grids is the setting `editorcohort` (global group): its members
+need no further role. Without a group, allow `local/competencygrid:create` for the authenticated
+user role or a system role assigned to teachers.
+
+Public grids need no capability at all; private grids are visible to owner, collaborators and
+holders of `local/competencygrid:manageall`.
 
 ## Settings
 
 - `showinprimarynav`: link to the library in the primary navigation (default on).
+- `editorcohort`: global group whose members may create and edit grids (default: none).
 - `options_subject`, `options_classlevel`, `options_edulevel`, `options_schooltype`: selection lists
   for the grid metadata, one value per line.
 - `levelschemes`: level templates. A line `[Name]` starts a template, each following line

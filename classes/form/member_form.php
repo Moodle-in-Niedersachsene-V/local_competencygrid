@@ -62,8 +62,11 @@ class member_form extends \moodleform {
      */
     public function validation($data, $files): array {
         $errors = parent::validation($data, $files);
-        if (self::find_user((string) ($data['identifier'] ?? '')) === null) {
+        $user = self::find_user((string) ($data['identifier'] ?? ''));
+        if ($user === null) {
             $errors['membergroup'] = get_string('usernotfound', 'local_competencygrid');
+        } else if (($data['role'] ?? '') === grid::ROLE_EDITOR && !grid::is_in_editor_cohort((int) $user->id)) {
+            $errors['membergroup'] = get_string('notineditorcohort', 'local_competencygrid');
         }
         return $errors;
     }

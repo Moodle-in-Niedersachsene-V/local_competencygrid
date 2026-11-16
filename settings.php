@@ -35,6 +35,19 @@ if ($hassiteconfig) {
             1
         ));
 
+        $cohorts = [0 => get_string('editorcohortnone', 'local_competencygrid')];
+        foreach ($DB->get_records('cohort', null, 'name ASC', 'id, name, idnumber') as $cohort) {
+            $suffix = $cohort->idnumber !== '' ? ' (' . s($cohort->idnumber) . ')' : '';
+            $cohorts[$cohort->id] = format_string($cohort->name) . $suffix;
+        }
+        $settings->add(new admin_setting_configselect(
+            'local_competencygrid/editorcohort',
+            get_string('editorcohort', 'local_competencygrid'),
+            get_string('editorcohort_desc', 'local_competencygrid'),
+            0,
+            $cohorts
+        ));
+
         $settings->add(new admin_setting_heading(
             'local_competencygrid/levelschemesheading',
             get_string('levelschemes', 'local_competencygrid'),

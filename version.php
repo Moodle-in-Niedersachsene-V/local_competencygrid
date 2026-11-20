@@ -25,9 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_competencygrid';
-$plugin->version = 2026111006;
+$plugin->version = 2026111008;
 $plugin->requires = 2025100600;
 $plugin->supported = [501, 503];
 $plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '0.1.6';
+$plugin->release = '0.2.1';
 $plugin->maintainer = 'Moodle in Niedersachsen e. V.';

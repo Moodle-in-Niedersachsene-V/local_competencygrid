@@ -38,3 +38,15 @@ ein späterer Export lässt sich deshalb wieder in bestehende exacomp-Raster ein
 ## Export
 - **Export exacomp-XML** für block_exacomp (Import wie bisher aus Komet).
 - **Export Moodle-CSV** für Website-Administration → Kompetenzen → Kompetenzrahmen importieren.
+
+## Synchronisation mit den Schulinstanzen (block_exacomp)
+1. **Hub (Administration):** Kompetenzraster-Einstellungen → „Feed bereitstellen“ einschalten, Quellname eintragen
+   (z. B. „Moodle in Niedersachsen – Material-Hub“).
+2. **Raster freigeben:** Auf der Rasterseite „Für Schulen freigeben“ (nur öffentliche Raster, Besitzer oder Manager).
+   Jede spätere Änderung erreicht die Schulen mit dem nächsten nächtlichen Import.
+3. **Schulinstanz:** In block_exacomp die Feed-Adresse als Server-URL (xmlserverurl) eintragen.
+4. **Erster Import:** In der Bibliothek „Datei für den ersten Import herunterladen“, in block_exacomp importieren und
+   die gewünschten Raster anhaken. Danach aktualisiert block_exacomp diese Raster jede Nacht.
+5. **Weitere Raster:** Neu freigegebene Raster erscheinen erst nach einem erneuten manuellen Import zur Auswahl.
+6. **Freigabe zurückziehen:** Das Raster verschwindet aus dem Feed; die Schulen behalten ihren Stand ohne Updates.
+   Ist in block_exacomp „Daten bei Synchronisation löschen“ aktiv, werden unbenutzte Raster ohne Bewertungen entfernt.

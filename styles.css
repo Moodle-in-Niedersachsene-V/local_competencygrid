@@ -39,6 +39,16 @@
     color: #495057;
 }
 
+.local-competencygrid .local-competencygrid-badge-schools {
+    background-color: #fff4e0;
+    color: #7a4a00;
+}
+
+.local-competencygrid .local-competencygrid-feedurl {
+    flex: 1 1 20rem;
+    max-width: 40rem;
+}
+
 .local-competencygrid .local-competencygrid-levelbar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

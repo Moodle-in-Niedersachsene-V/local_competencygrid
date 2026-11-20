@@ -26,6 +26,7 @@ require(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/licenselib.php');
 
 use local_competencygrid\grid;
+use local_competencygrid\local\feed;
 
 require_login(null, true);
 $context = context_system::instance();
@@ -74,6 +75,7 @@ foreach (grid::list_grids($scope, $search) as $record) {
         'compcount' => (int) $record->compcount,
         'license' => $licenses[$record->license] ?? '',
         'badge' => $badge,
+        'schoolsync' => feed::enabled() && !empty($record->schoolsync) && (int) $record->visibility === grid::VISIBILITY_SITE,
         'badgeclass' => $badgeclass,
         'timemodified' => userdate($record->timemodified, get_string('strftimedatefullshort', 'langconfig')),
     ];
@@ -98,6 +100,10 @@ $data = [
     'search' => $search,
     'tabs' => $tabs,
     'hasgrids' => !empty($cards),
+    'showfeed' => feed::enabled() && !isguestuser(),
+    'feedurl' => feed::url()->out(false),
+    'feeddownloadurl' => feed::url(true)->out(false),
+    'feedhelp' => $OUTPUT->help_icon('feedbox', 'local_competencygrid'),
     'grids' => $cards,
 ];
 

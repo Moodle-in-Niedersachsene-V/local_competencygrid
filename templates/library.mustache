@@ -26,11 +26,15 @@
         "importurl": "https://example.com/local/competencygrid/import.php",
         "actionurl": "https://example.com/local/competencygrid/index.php",
         "scope": "all",
+    "showfeed": true,
+    "feedurl": "https://example.com/local/competencygrid/feed.php",
+    "feeddownloadurl": "https://example.com/local/competencygrid/feed.php?download=1",
+    "feedhelp": "",
         "search": "",
         "tabs": [{"label": "All", "url": "#", "active": true}],
         "hasgrids": true,
         "grids": [{"name": "BWL", "url": "#", "subtitle": "Sek II", "topiccount": 7, "compcount": 28,
-            "license": "CC BY-SA 4.0", "badge": "Owner", "badgeclass": "own", "timemodified": "10 Nov 2026"}]
+            "license": "CC BY-SA 4.0", "badge": "Owner", "badgeclass": "own", "schoolsync": true, "timemodified": "10 Nov 2026"}]
     }
 }}
 <div class="local-competencygrid local-competencygrid-library">
@@ -43,6 +47,18 @@
         </div>
         {{/cancreate}}
     </div>
+
+    {{#showfeed}}
+    <div class="local-competencygrid-feedbox card mb-3">
+        <div class="card-body d-flex flex-wrap align-items-center gap-2">
+            <strong>{{#str}} feedboxtitle, local_competencygrid {{/str}}</strong>{{{feedhelp}}}
+            <label class="visually-hidden sr-only" for="local-competencygrid-feedurl">{{#str}} feedurl, local_competencygrid {{/str}}</label>
+            <input type="text" readonly class="form-control form-control-sm local-competencygrid-feedurl" id="local-competencygrid-feedurl"
+                value="{{feedurl}}">
+            <a class="btn btn-outline-secondary btn-sm" href="{{feeddownloadurl}}">{{#str}} feeddownload, local_competencygrid {{/str}}</a>
+        </div>
+    </div>
+    {{/showfeed}}
 
     <ul class="nav nav-tabs mb-3">
         {{#tabs}}
@@ -65,12 +81,13 @@
         {{#grids}}
         <article class="card local-competencygrid-card">
             <div class="card-body d-flex flex-column gap-2">
-                <div class="d-flex justify-content-between align-items-start gap-2">
-                    <div>
-                        {{#subtitle}}<div class="small text-muted">{{subtitle}}</div>{{/subtitle}}
-                        <h3 class="h5 mb-0"><a href="{{url}}">{{name}}</a></h3>
-                    </div>
+                <div>
+                    {{#subtitle}}<div class="small text-muted">{{subtitle}}</div>{{/subtitle}}
+                    <h3 class="h5 mb-0"><a href="{{url}}">{{name}}</a></h3>
+                </div>
+                <div class="d-flex flex-wrap gap-1">
                     <span class="local-competencygrid-badge local-competencygrid-badge-{{badgeclass}}">{{badge}}</span>
+                    {{#schoolsync}}<span class="local-competencygrid-badge local-competencygrid-badge-schools">{{#str}} badgeschools, local_competencygrid {{/str}}</span>{{/schoolsync}}
                 </div>
                 <div class="local-competencygrid-levelbar" aria-hidden="true"><span></span><span></span><span></span></div>
                 <div class="small d-flex flex-wrap gap-3">

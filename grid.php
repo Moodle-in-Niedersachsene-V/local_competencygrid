@@ -26,6 +26,7 @@ require(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/licenselib.php');
 
 use local_competencygrid\grid;
+use local_competencygrid\local\feed;
 
 $id = required_param('id', PARAM_INT);
 
@@ -59,8 +60,20 @@ if (!empty($record->license)) {
 $visibilitykey = (int) $record->visibility === grid::VISIBILITY_SITE ? 'visibilitysite' : 'visibilityprivate';
 $chips[] = ['text' => get_string($visibilitykey, 'local_competencygrid')];
 
+$ispublic = (int) $record->visibility === grid::VISIBILITY_SITE;
+$released = feed::enabled() && $ispublic && !empty($record->schoolsync);
+$canrelease = grid::can_release($record);
+
 $data = [
     'gridid' => $id,
+    'showrelease' => feed::enabled() && ($released || $canrelease),
+    'released' => $released,
+    'releasedstatus' => get_string('releasedstatus', 'local_competencygrid', (int) $record->feedversion),
+    'canrelease' => $canrelease && $ispublic,
+    'needspublic' => $canrelease && !$ispublic,
+    'releasehelp' => $OUTPUT->help_icon('release', 'local_competencygrid'),
+    'releaseurl' => (new moodle_url('/local/competencygrid/release.php', ['id' => $id, 'action' => 'release']))->out(false),
+    'withdrawurl' => (new moodle_url('/local/competencygrid/release.php', ['id' => $id, 'action' => 'withdraw']))->out(false),
     'chips' => $chips,
     'description' => format_text($record->description, FORMAT_PLAIN),
     'canmanage' => grid::can_manage($record),

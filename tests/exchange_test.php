@@ -124,6 +124,8 @@ final class exchange_test extends \advanced_testcase {
     public function test_moodlecsv_import_into_core(): void {
         $this->resetAfterTest();
         $this->setAdminUser();
+        // Other plugins, e.g. block_exacomp, may switch the core competencies off.
+        set_config('enabled', 1, 'core_competency');
 
         $record = $this->import_fixture();
         $rows = (new moodlecsv_exporter($record))->get_rows();

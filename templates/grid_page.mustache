@@ -22,6 +22,14 @@
     Example context (json):
     {
         "gridid": 1,
+    "showrelease": true,
+    "released": true,
+    "releasedstatus": "Shared with the schools (version 3)",
+    "canrelease": true,
+    "needspublic": false,
+    "releasehelp": "",
+    "releaseurl": "#",
+    "withdrawurl": "#",
         "chips": [{"text": "Sekundarstufe II"}],
         "description": "",
         "canmanage": true,
@@ -50,6 +58,20 @@
             {{/canmanage}}
         </div>
     </div>
+    {{#showrelease}}
+    <div class="local-competencygrid-release alert {{#released}}alert-success{{/released}}{{^released}}alert-secondary{{/released}} d-flex flex-wrap align-items-center gap-2">
+        <span class="flex-grow-1">
+            {{#released}}<strong>{{releasedstatus}}</strong>{{/released}}
+            {{^released}}{{#str}} notreleased, local_competencygrid {{/str}}{{/released}}
+            {{{releasehelp}}}
+        </span>
+        {{#canrelease}}
+            {{#released}}<a class="btn btn-outline-secondary btn-sm" href="{{withdrawurl}}">{{#str}} withdrawrelease, local_competencygrid {{/str}}</a>{{/released}}
+            {{^released}}<a class="btn btn-primary btn-sm" href="{{releaseurl}}">{{#str}} release, local_competencygrid {{/str}}</a>{{/released}}
+        {{/canrelease}}
+        {{#needspublic}}<span class="small">{{#str}} releaserequirespublic, local_competencygrid {{/str}}</span>{{/needspublic}}
+    </div>
+    {{/showrelease}}
     <div class="local-competencygrid-editor" data-region="local_competencygrid-editor" data-gridid="{{gridid}}">
         <section class="local-competencygrid-main card" aria-label="{{#str}} grid, local_competencygrid {{/str}}">
             <div data-region="grid">

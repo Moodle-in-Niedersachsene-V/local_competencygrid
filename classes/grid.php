@@ -350,6 +350,11 @@ class grid {
                 $record->$field = $data->$field;
             }
         }
+        // A private grid must not stay in the public feed.
+        if (property_exists($data, 'visibility') && (int) $data->visibility !== self::VISIBILITY_SITE) {
+            $record->schoolsync = 0;
+            local\feed::purge();
+        }
         $DB->update_record(self::TABLE, $record);
         self::touch((int) $data->id);
         event\grid_updated::create([
@@ -373,6 +378,9 @@ class grid {
         }
         $DB->delete_records(self::TABLE, ['id' => $id]);
         $transaction->allow_commit();
+        if (!empty($record->schoolsync)) {
+            local\feed::purge();
+        }
         $event = event\grid_deleted::create([
             'context' => context_system::instance(),
             'objectid' => $id,
@@ -464,7 +472,54 @@ class grid {
             'timemodified' => time(),
             'usermodified' => (int) $USER->id,
         ];
+        // A grid shared with the school instances gets a new feed version with every change.
+        $current = $DB->get_record(self::TABLE, ['id' => $gridid], 'id, schoolsync, feedversion', MUST_EXIST);
+        if (!empty($current->schoolsync)) {
+            $record->feedversion = (int) $current->feedversion + 1;
+        }
         $DB->update_record(self::TABLE, $record);
+        if (!empty($current->schoolsync)) {
+            local\feed::purge();
+        }
+    }
+
+    /**
+     * Whether the user may share the grid with the school instances or stop sharing it.
+     *
+     * @param stdClass $grid Grid record.
+     * @param int|null $userid User id or null for the current user.
+     * @return bool
+     */
+    public static function can_release(stdClass $grid, ?int $userid = null): bool {
+        return local\feed::enabled() && self::can_manage($grid, $userid);
+    }
+
+    /**
+     * Shares a public grid with the school instances or stops sharing it.
+     *
+     * Sharing raises the feed version, so block_exacomp imports the grid again.
+     *
+     * @param int $gridid Grid id.
+     * @param bool $enabled True to share, false to stop sharing.
+     * @return void
+     */
+    public static function set_school_sync(int $gridid, bool $enabled): void {
+        global $DB;
+        $record = self::get($gridid);
+        if ($enabled && (int) $record->visibility !== self::VISIBILITY_SITE) {
+            throw new moodle_exception('releaserequirespublic', 'local_competencygrid');
+        }
+        $update = (object) ['id' => $gridid, 'schoolsync' => $enabled ? 1 : 0];
+        if ($enabled) {
+            $update->feedversion = (int) $record->feedversion + 1;
+        }
+        $DB->update_record(self::TABLE, $update);
+        local\feed::purge();
+        $eventclass = $enabled ? event\grid_released::class : event\grid_release_withdrawn::class;
+        $eventclass::create([
+            'context' => context_system::instance(),
+            'objectid' => $gridid,
+        ])->trigger();
     }
 
     /**
@@ -577,7 +632,7 @@ class grid {
             'manageall' => !isguestuser() && self::can_manage_all() ? 1 : 0,
         ];
         $sql = "SELECT g.id, g.name, g.subject, g.classlevel, g.edulevel, g.schooltype, g.license, g.visibility,
-                       g.ownerid, g.timemodified, m.role AS memberrole,
+                       g.ownerid, g.timemodified, g.schoolsync, m.role AS memberrole,
                        (SELECT COUNT(1) FROM {local_competencygrid_topic} t WHERE t.gridid = g.id) AS topiccount,
                        (SELECT COUNT(1) FROM {local_competencygrid_comp} c WHERE c.gridid = g.id) AS compcount
                   FROM {local_competencygrid} g

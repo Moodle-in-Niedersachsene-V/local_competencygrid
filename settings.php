@@ -49,6 +49,34 @@ if ($hassiteconfig) {
         ));
 
         $settings->add(new admin_setting_heading(
+            'local_competencygrid/feedheading',
+            get_string('feedheading', 'local_competencygrid'),
+            get_string('feedheading_desc', 'local_competencygrid')
+        ));
+        $settings->add(new admin_setting_configcheckbox(
+            'local_competencygrid/feedenabled',
+            get_string('feedenabled', 'local_competencygrid'),
+            get_string('feedenabled_desc', 'local_competencygrid'),
+            0
+        ));
+        $settings->add(new admin_setting_configtext(
+            'local_competencygrid/feedsourcename',
+            get_string('feedsourcename', 'local_competencygrid'),
+            get_string('feedsourcename_desc', 'local_competencygrid'),
+            '',
+            PARAM_TEXT
+        ));
+        $feedinfo = (object) [
+            'url' => \local_competencygrid\local\feed::url()->out(false),
+            'source' => s(\local_competencygrid\local\feed::source()),
+        ];
+        $settings->add(new admin_setting_description(
+            'local_competencygrid/feedinfo',
+            get_string('feedinfo', 'local_competencygrid'),
+            get_string('feedinfo_desc', 'local_competencygrid', $feedinfo)
+        ));
+
+        $settings->add(new admin_setting_heading(
             'local_competencygrid/levelschemesheading',
             get_string('levelschemes', 'local_competencygrid'),
             ''

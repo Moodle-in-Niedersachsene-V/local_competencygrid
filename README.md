@@ -19,6 +19,10 @@ The plugin replaces external editors such as Komet for creating grids.
 - Import of exacomp XML files (for example Komet exports). Each subject becomes a grid.
 - Export as exacomp XML with stable ids: imported ids are kept, new items get
   ids starting at 900000000, so a new import into block_exacomp updates instead of duplicating.
+- Synchronisation with block_exacomp in other Moodle sites: public grids can be shared with the
+  school instances. They are delivered as one exacomp XML feed (`/local/competencygrid/feed.php`)
+  that block_exacomp fetches via its setting `xmlserverurl`. Every change of a shared grid raises
+  its version and reaches the schools with the next nightly import of block_exacomp.
 - Export as CSV for the core import of competency frameworks (tool_lpimportcsv).
   Hierarchy: topic, level, competency.
 - Simple conflict detection: a competency changed by someone else in the
@@ -27,6 +31,19 @@ The plugin replaces external editors such as Komet for creating grids.
 ## Requirements
 
 Moodle 5.1 to 5.3, PHP 8.2 to 8.4, MariaDB, MySQL or PostgreSQL.
+
+## Synchronisation with block_exacomp
+
+1. Hub: enable `feedenabled`, optionally set `feedsourcename`. Share public grids with
+   "Share with schools" on the grid page (owner or managers).
+2. School instance: enter the feed address as server URL (`exacomp | xmlserverurl`).
+3. First import once manually: download the feed file from the library page and import it in
+   block_exacomp, selecting the grids the school needs.
+4. From then on the scheduled task of block_exacomp updates the selected grids every night.
+
+The feed uses one fixed source identifier (created at installation, shown in the settings). All ids
+in the feed are derived from database ids (offset 900000000), so they are unique and never change.
+Withdrawing a grid removes it from the feed; schools keep their copy, which is no longer updated.
 
 ## Events
 
@@ -57,6 +74,8 @@ holders of `local/competencygrid:manageall`.
 
 ## Settings
 
+- `feedenabled`: provide the feed for the school instances (default off).
+- `feedsourcename`: source name shown in block_exacomp (default: site name).
 - `showinprimarynav`: link to the library in the primary navigation (default on).
 - `editorcohort`: global group whose members may create and edit grids (default: none).
 - `options_subject`, `options_classlevel`, `options_edulevel`, `options_schooltype`: selection lists
@@ -70,7 +89,7 @@ holders of `local/competencygrid:manageall`.
 
 - No real-time collaboration: changes of others appear after "Refresh" or when the tab becomes visible again.
 - Examples (materials) and child descriptors of exacomp files are not imported.
-- No direct distribution to other Moodle sites, no version history and no comments yet.
+- No version history and no comments yet. Shared grids always deliver their current state.
 
 ## Licence
 
